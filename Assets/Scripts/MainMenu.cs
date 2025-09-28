@@ -6,7 +6,7 @@ public class MainMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && Time.time > .35f)
         {
             SceneManager.LoadScene(1);
         }

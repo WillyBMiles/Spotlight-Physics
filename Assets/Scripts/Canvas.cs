@@ -26,17 +26,18 @@ public class Canvas : MonoBehaviour
 
         if (group.alpha == 1)
         {
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) || Input.GetKeyDown(KeyCode.Space))
             {
                 var s = SceneManager.GetActiveScene();
-                try
-                {
-                    SceneManager.GetSceneAt(s.buildIndex + 1);
-                    SceneManager.LoadScene(s.buildIndex + 1);
-                }
-                catch
+
+                var sc = SceneUtility.GetScenePathByBuildIndex(s.buildIndex + 1);
+                if (sc.Length <= 0)
                 {
                     SceneManager.LoadScene(0);
+                }
+                else
+                {
+                    SceneManager.LoadScene(s.buildIndex + 1);
                 }
 
             }

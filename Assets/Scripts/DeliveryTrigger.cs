@@ -23,8 +23,8 @@ public class DeliveryTrigger : MonoBehaviour
 
     static void RegisterTrigger(DeliveryTrigger trigger)
     {
-        numTriggers = triggers.Count;
         triggers.Add(trigger);
+        numTriggers = triggers.Count;
     }
     static bool HitTrigger(DeliveryTrigger trigger)
     {
