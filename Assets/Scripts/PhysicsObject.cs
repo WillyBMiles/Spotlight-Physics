@@ -12,6 +12,8 @@ public class PhysicsObject : MonoBehaviour
     LineRenderer impulseDirection;
 
     public List<ContactPoint> storedContacts = new();
+    [SerializeField]
+    AudioSource thud;
 
     Rigidbody rb;
     private void Awake()
@@ -120,6 +122,9 @@ public class PhysicsObject : MonoBehaviour
             collision.GetContacts(tempContacts);
             obj.storedContacts.AddRange(tempContacts);
         }
+
+        thud.volume = collision.impulse.magnitude / 10f;
+        thud.Play();
     }
 
     public void Fire()
